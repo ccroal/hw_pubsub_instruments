@@ -8,16 +8,17 @@ FamilyMenuView.prototype.bindEvents = function(){
   PubSub.subscribe('InstrumentFamilies:all-families', (event) => {
     this.populate(event.detail);
   });
+
   this.element.addEventListener('change', (event) => {
-    selectedIndex = event.target.value;
+    const selectedIndex = event.target.value;
     PubSub.publish('FamilyMenuView:selected-family', selectedIndex)
   })
 }
 
 FamilyMenuView.prototype.populate = function(families){
-  families.forEach((family) => {
+  families.forEach((family, index) => {
   const option = document.createElement('option');
-  option.index = family.name;
+  option.value = index;
   option.textContent = family.name;
   this.element.appendChild(option);
   })

@@ -8,19 +8,14 @@ InstrumentFamilies.prototype.bindEvents = function(){
   console.log('Data Families', this.data);
 
   PubSub.subscribe('FamilyMenuView:selected-family', (event) => {
-    const name = event.detail;
-    const foundFamily = this.findByName(name);
+    const index = event.detail;
+    const foundFamily = this.findFamily(index);
     PubSub.publish('InstrumentFamilies:found-family', foundFamily);
   })
 }
 
-InstrumentFamilies.prototype.findByName = function(name){
-  const foundFamily = this.data.find((family) => {
-    family.name === name;
-  })
-  return foundFamily
-}
-
-
+InstrumentFamilies.prototype.findFamily = function(index){
+  return this.data[index];
+};
 
 module.exports = InstrumentFamilies;
