@@ -8,10 +8,10 @@ FamilyMenuView.prototype.bindEvents = function(){
   PubSub.subscribe('InstrumentFamilies:all-families', (event) => {
     this.populate(event.detail);
   });
-  // this.element.addEventListener('change', (event) => {
-  //   selectedIndex = event.target.value;
-  //   PubSub.publish('FamilyMenuView:' selectedIndex)
-  // })
+  this.element.addEventListener('change', (event) => {
+    selectedIndex = event.target.value;
+    PubSub.publish('FamilyMenuView:selected-family', selectedIndex)
+  })
 }
 
 FamilyMenuView.prototype.populate = function(families){

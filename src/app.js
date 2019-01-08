@@ -11,6 +11,5 @@ instrumentFamilyMenuView.bindEvents();
 
 const instrumentDataModel = new InstrumentFamilies(instrumentData)
 instrumentDataModel.bindEvents();
-console.log()
 
 });
