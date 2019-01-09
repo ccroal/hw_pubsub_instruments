@@ -12,8 +12,8 @@ FamilyMenuView.prototype.bindEvents = function(){
   this.element.addEventListener('change', (event) => {
     const selectedIndex = event.target.value;
     PubSub.publish('FamilyMenuView:selected-family', selectedIndex)
-  })
-}
+  });
+};
 
 FamilyMenuView.prototype.populate = function(families){
   families.forEach((family, index) => {
@@ -21,7 +21,7 @@ FamilyMenuView.prototype.populate = function(families){
   option.value = index;
   option.textContent = family.name;
   this.element.appendChild(option);
-  })
-}
+  });
+};
 
 module.exports = FamilyMenuView;

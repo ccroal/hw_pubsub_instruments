@@ -5,7 +5,6 @@ const InstrumentFamilies = function(data) {
 
 InstrumentFamilies.prototype.bindEvents = function(){
   PubSub.publish('InstrumentFamilies:all-families', this.data);
-  console.log('Data Families', this.data);
 
   PubSub.subscribe('FamilyMenuView:selected-family', (event) => {
     const index = event.detail;
